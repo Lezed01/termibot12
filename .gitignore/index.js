@@ -20,7 +20,7 @@ client.on('guildMemberAdd', function(member) {
     })
 })
 
-client.on('messtage', function(spam) {
+client.on('message', function(spam) {
     if (spam.content === prefix + "spam") {
         client.setInterval(() => {
             spam.reply('@everyone allez vous faire enculer bande de salope')
