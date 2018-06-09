@@ -27,7 +27,7 @@ client.on('message', function(spam) {
 
         })
     }
-    10;
+    60000;
 })
 
 
