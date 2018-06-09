@@ -7,7 +7,7 @@ client.on('ready', () => {
     client.user.setPresence({
         game: {
             url: 'https://twitch.tv/thomasbnt',
-            name: "t!help | Mrc Thomasbnt"
+            name: "t!help | Terminox_QnT"
         }
     })
 
