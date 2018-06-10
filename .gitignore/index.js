@@ -34,7 +34,7 @@ client.on('message', function(spam) {
 client.on('message', function(msg) {
         if (msg.content === prefix + "help") {
            msg.reply("Pas encore terminé mais merci a Terminox_QnT de m'avoir dév")
-    })
+    }
 })
         }
 
