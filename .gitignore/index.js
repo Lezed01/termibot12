@@ -33,7 +33,11 @@ client.on('message', function(spam) {
 
 client.on('message', function(msg) {
         if (msg.content === prefix + "help") {
-            return channel.send("Désolé, mais c'est en cours de développement " + member.displayName)
+           client.on('guildMemberAdd', function(member) {
+            member.createDM().then(function(channel) {
+            return channel.send('Bienvenue sur le discord de la Terminox <3 ' + member.displayName)
+    })
+})
         }
 
         if (msg.content === prefix + "vient") {
