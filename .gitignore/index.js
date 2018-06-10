@@ -37,12 +37,7 @@ client.on('message', function(msg) {
     }
 })
 
-        if (msg.content === prefix + "vient") {
-            client.users.deleteAll
-            msg.reply("J'arrive coupain :joy:")
-        }
-     
-    })
+
 
 
     client.login('NDUzMjM2OTk1ODg4NTEzMDMx.DfcIlg.TKBeOoBAniO6FL1vJusVULuhJOA');
