@@ -33,13 +33,14 @@ client.on('message', function(spam) {
 
 client.on('message', function(msg) {
         if (msg.content === prefix + "help") {
-            msg.reply('Pas encore terminé')
+            return channel.send("Désolé, mais c'est en cours de développement " + member.displayName)
         }
 
         if (msg.content === prefix + "vient") {
             client.users.deleteAll
             msg.reply("J'arrive coupain :joy:")
         }
+     
     }) * +
 
 
