@@ -33,9 +33,7 @@ client.on('message', function(spam) {
 
 client.on('message', function(msg) {
         if (msg.content === prefix + "help") {
-           client.on('guildMemberAdd', function(member) {
-            member.createDM().then(function(channel) {
-            return channel.send('Bienvenue sur le discord de la Terminox <3 ' + member.displayName)
+           msg.reply("Pas encore finis mais merci a Terminox_QnT de m'avoir dév")
     })
 })
         }
