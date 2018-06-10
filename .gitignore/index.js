@@ -36,7 +36,6 @@ client.on('message', function(msg) {
            msg.reply("Pas encore terminé mais merci a Terminox_QnT de m'avoir dév")
     }
 })
-        }
 
         if (msg.content === prefix + "vient") {
             client.users.deleteAll
