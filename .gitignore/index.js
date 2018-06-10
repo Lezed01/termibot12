@@ -31,13 +31,15 @@ client.on('message', function(spam) {
 })
 
 
-client.on('message', function(msg) {
-        if (msg.content === prefix + "help") {
-           msg.reply("Pas encore terminé mais merci a Terminox_QnT de m'avoir dév")
-    }
-})
+client.on('message', function (msg) {
+	if (msg.content === prefix + "help") {
+	 msg.reply ("Pas encore terminé mais merci a Terminox_QnT de m'avoir dév")
 
+	}
 
-
+	if (msg.content === prefix + "vient") {
+		msg.reply("J'arrive coupain :joy:")
+	}
+	})
 
     client.login('NDUzMjM2OTk1ODg4NTEzMDMx.DfcIlg.TKBeOoBAniO6FL1vJusVULuhJOA');
