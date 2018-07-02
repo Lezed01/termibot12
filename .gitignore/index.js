@@ -16,7 +16,7 @@ client.on('ready', () => {
 
 client.on('guildMemberAdd', function(member) {
     member.createDM().then(function(channel) {
-        return channel.send('Bienvenue sur le discord de la Terminox <3 ' + member.displayName)
+        return channel.send('Bienvenue sur le discord <3 ' + member.displayName)
     })
 })
 
@@ -42,4 +42,4 @@ client.on('message', function (msg) {
 	}
 	})
 
-    client.login('NDUzMjM2OTk1ODg4NTEzMDMx.DfcIlg.TKBeOoBAniO6FL1vJusVULuhJOA');
+    client.login('NDYzNDc0MDExMTkyNDI2NTU2.Dhw9cQ.R2Hm_qdhbzOGr9u2bGAGaaH5S4c');
