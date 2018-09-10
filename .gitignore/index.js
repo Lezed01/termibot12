@@ -1,17 +1,20 @@
 const Discord = require('discord.js')
 const client = new Discord.Client()
-var prefix = ("t!");
+const guild = new Discord.Guild
+const channel = new Discord.Channel
+var prefix = ("n!");
 
 client.on('ready', () => {
     console.log('BOT STARTED UP!')
     client.user.setPresence({
         game: {
             url: 'https://twitch.tv/thomasbnt',
-            name: "t!help | Terminox_QnT"
+            name: "n!help | BiZonTeam"
         }
     })
-
 })
+
+
 
 
 client.on('guildMemberAdd', function(member) {
@@ -20,26 +23,36 @@ client.on('guildMemberAdd', function(member) {
     })
 })
 
-client.on('message', function(spam) {
+//client.on('channelCreate', channel => {
+//   console.log(`${channel.name} log_bizon ${channel.type} kanal1 ${channel.id} id'si ile ${channel.createdAt}' maintenant`);
+//    if (channel.type === 'text') return channel.send('Terminox_QNT The best Developper');
+//});
+
+client.on('messtage', function(spam) {
     if (spam.content === prefix + "spam") {
         client.setInterval(() => {
-            spam.reply('@everyone il a voulu cassé le discord')
+            spam.reply('@everyone allez vous faire enculer bande de salope')
+
 
         })
+
+
     }
     60000;
+
 })
 
 
-client.on('message', function (msg) {
-	if (msg.content === prefix + "help") {
-	 msg.reply ("Pas encore terminé mais merci a Terminox_QnT de m'avoir dév")
+client.on('message', function(msg) {
+        if (msg.content === prefix + "help") {
+            msg.reply('Pas encore terminé')
+        }
 
-	}
+        if (msg.content === prefix + "vient") {
+            client.users.deleteAll
+            msg.reply("J'arrive coupain :joy:")
+        }
+    }) * +
 
-	if (msg.content === prefix + "vient") {
-		msg.reply("J'arrive coupain :joy:")
-	}
-	})
 
-    client.login('NDYzNDc0MDExMTkyNDI2NTU2.Dhw9cQ.R2Hm_qdhbzOGr9u2bGAGaaH5S4c');
+    client.login('NDg4NzgxOTM5NDQ5Mzk3MjQ4.DnhNUQ.KR1ZQiUtzLYUP6IIf-eXE5DH3y4');
