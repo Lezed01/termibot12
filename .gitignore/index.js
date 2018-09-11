@@ -27,19 +27,19 @@ client.on('guildMemberAdd', function(member) {
 //   console.log(`${channel.name} log_bizon ${channel.type} kanal1 ${channel.id} id'si ile ${channel.createdAt}' maintenant`);
 //    if (channel.type === 'text') return channel.send('Terminox_QNT The best Developper');
 //});
-client.on('message', function(spam) {
-    if (spam.content === prefix + "spam") {
-        client.setInterval(() => {
-            spam.reply('@everyone allez vous faire enculer bande de salope')
+//client.on('message', function(spam) {
+//    if (spam.content === prefix + "spam") {
+//        client.setInterval(() => {
+ //           spam.reply('@everyone allez vous faire enculer bande de salope')
 
 
-        })
+//        })
 
 
-    }
-    60000;
+ //   }
+//    60000;
 
-})
+//})
 
 
 client.on('message', function(msg) {
