@@ -1,8 +1,33 @@
 const Discord = require('discord.js')
 const client = new Discord.Client()
 const guild = new Discord.Guild
-const channel = new Discord.Channel
+const guildm = new Discord.GuildMember
+const embed = new Discord.RichEmbed
+const AbstractHandler = require('./AbstractHandler');
 var prefix = ("n!");
+
+
+//client.on('guildCreate', function(guild){
+//  var logschannel = client.channels.find("id", '')
+//var embed = new Discord.RichEmbed()
+//    .setDescription("Terminox_QnT Dev")
+//    .addField("Serveur :", guild.name)
+//    .addField("Serveur ID : ", guild.id)
+//    .addField("Fondateur du discord : ", guild.owner.user.username)
+//    .addField("Nombre de personne : ", guild.members.size)
+//   .addField("Nombre de channel : ", guild.channels.size)
+//    logschannel.send(embed)
+//    var channel = guild.channels.array()
+//})
+
+
+
+client.on('guilAddRole', function(guildMemberAdd){
+    if (spam.content === prefix + "role") {
+        var message = new Discord.Message
+        message.member.addRole('staff', 'Il a besoin')
+    }
+})
 
 client.on('ready', () => {
     console.log('BOT STARTED UP!')
@@ -23,20 +48,34 @@ client.on('guildMemberAdd', function(member) {
     })
 })
 
-//client.on('channelCreate', channel => {
-//   console.log(`${channel.name} log_bizon ${channel.type} kanal1 ${channel.id} id'si ile ${channel.createdAt}' maintenant`);
-//    if (channel.type === 'text') return channel.send('Terminox_QNT The best Developper');
-//});
-//client.on('message', function(spam) {
+client.on('channelCreate', channel => {
+    class ChannelCreateHandler extends AbstractHandler {
+        handle(packet) {
+            const client = this.packetManager.client;
+            const data = packet.d;
+            client.actions.ChannelCreate.handle(data);
+        }
+    }
+
+    /**
+     * Emitted whenever a channel is created.
+     * @event Client#channelCreate
+     * @param {Channel} channel The channel that was created
+     */
+
+    module.exports = ChannelCreateHandler;
+});
+
+//client.on('messtage', function(spam) {
 //    if (spam.content === prefix + "spam") {
-//        client.setInterval(() => {
- //           spam.reply('@everyone allez vous faire enculer bande de salope')
+//       client.setInterval(() => {
+//            spam.reply('@everyone allez vous faire enculer bande de salope')
 
 
 //        })
 
 
- //   }
+//    }
 //    60000;
 
 //})
