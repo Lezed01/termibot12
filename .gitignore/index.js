@@ -1,70 +1,81 @@
 const Discord = require('discord.js')
 const client = new Discord.Client()
-const guild = new Discord.Guild
-const guildm = new Discord.GuildMember
-const embed = new Discord.RichEmbed
+const guild = new Discord.Guild()
+const embed = new Discord.RichEmbed()
+const { Client, RichEmbed } = require('discord.js');
+const ytdl = require('ytdl-core');
+const streamOptions = { seek: 0, volume: 1 };
 var prefix = ("n!");
-
-
-//client.on('guildCreate', function(guild){
-//  var logschannel = client.channels.find("id", '')
-//var embed = new Discord.RichEmbed()
-//    .setDescription("Terminox_QnT Dev")
-//    .addField("Serveur :", guild.name)
-//    .addField("Serveur ID : ", guild.id)
-//    .addField("Fondateur du discord : ", guild.owner.user.username)
-//    .addField("Nombre de personne : ", guild.members.size)
-//   .addField("Nombre de channel : ", guild.channels.size)
-//    logschannel.send(embed)
-//    var channel = guild.channels.array()
-//})
-
+var opus = require('opusscript');
+logschannel = ("général")
 
 client.on('ready', () => {
-    console.log('BOT STARTED UP!')
+    console.log('Sakura ON')
+
     client.user.setPresence({
         game: {
             url: 'https://twitch.tv/thomasbnt',
-            name: "n!help | BiZonTeam"
+            name: "n!help | Sakura"
+
+
         }
     })
 })
 
+client.on('message', message => {
+    if (message.author.bot)
+        return;
 
+    if (message.content.toLowerCase().startsWith("n!play")) {
+        let VoiceChannel = message.guild.channels.find(channel => channel.id === '593550175751110656')
+        if (VoiceChannel != null) {
+            console.log(VoiceChannel.name + " a été vue dans un channel " + VoiceChannel.type)
+            VoiceChannel.join()
+                .then(connection => {
+                    console.log("Le bot a rejoin le channel");
+                    const stream = ytdl('https://www.youtube.com/watch?v=McEoTIqoRKk', { filter: 'audioonly' });
+                    const dispatcher = connection.playStream(stream, streamOptions);
+                })
+                .catch();
+        }
+    }
 
+})
 
 client.on('guildMemberAdd', function(member) {
     member.createDM().then(function(channel) {
-        return channel.send('Bienvenue sur le discord <3 ' + member.displayName)
+        return channel.send('Bienvenue sur le discord de Sakura <3 ' + member.displayName)
     })
 })
 
+client.on('message', function(message) {
+    if (message.content === prefix + "Twitter") {
+        message.reply("Voici le Twitter de Sakura : ")
+        message.channel.send("```SakuraOff_```")
+        message.channel.send("Lien direct : https://twitter.com/SakuraOff_")
 
-//client.on('messtage', function(spam) {
-//    if (spam.content === prefix + "spam") {
-//       client.setInterval(() => {
-//            spam.reply('@everyone allez vous faire enculer bande de salope')
+    }
+})
 
+client.on('message', function(message) {
+    if (message.content === prefix + "twitter") {
+        message.reply("Voici le Twitter de Sakura : ")
+        message.channel.send("```SakuraOff_```")
+        message.channel.send("Lien direct : https://twitter.com/SakuraOff_")
 
-//        })
-
-
-//    }
-//    60000;
-
-//})
+    }
+})
 
 
 client.on('message', function(msg) {
-        if (msg.content === prefix + "help") {
-            msg.reply('Pas encore terminé')
-        }
+    if (msg.content === prefix + "help") {
+        msg.reply('```Voici les commande disponible dans SakuraBOT by Terminox```')
+        msg.channel.send("```⚠ Toutes les commandes commence par n! ```")
+        msg.channel.send("```twitter: Vous envoie le Twitter de Sakura```")
 
-        if (msg.content === prefix + "vient") {
-            client.users.deleteAll
-            msg.reply("J'arrive coupain :joy:")
-        }
-    }) * +
+    }
+})
 
 
-    client.login('NDg4NzgxOTM5NDQ5Mzk3MjQ4.DnhNUQ.KR1ZQiUtzLYUP6IIf-eXE5DH3y4');
+
+client.login('NTkzNTI2MzY5Mzg4ODU1Mjk3.XRPOPQ.tW4UwJH7vzLJTTGt7fQ_Jk1gmC8');
